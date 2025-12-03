@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vansh Jaiswal - Resume</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            /* Background image only */
+            background: url("https://uploads.onecompiler.io/445w2qj6u/446gb5buc/360_F_1242590497_fcNb4fNbKtPn0TmjGRdnqcLiHshGRSs5.jpg") center/cover fixed no-repeat;
+            min-height: 100vh;
+            animation: bgPan 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPan {
+            0% {
+                background-position: center top;
+            }
+            50% {
+                background-position: center center;
+            }
+            100% {
+                background-position: center bottom;
+            }
+        }
+
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 6%;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            top: -90px;
+            right: -60px;
+            background:
+                conic-gradient(
+                    from 200deg,
+                    rgba(217, 119, 6, 0.9),
+                    rgba(248, 250, 252, 0.05),
+                    rgba(239, 68, 68, 0.9),
+                    rgba(248, 250, 252, 0.05),
+                    rgba(180, 83, 9, 0.9),
+                    rgba(248, 250, 252, 0.1),
+                    rgba(217, 119, 6, 0.9)
+                );
+            opacity: 0.22;
+            mix-blend-mode: screen;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .header-content {
+            z-index: 1;
+            flex: 1;
+        }
+
+        .header-content h1 {
+            color: #fef3c7;
+            font-size: 3.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+            animation: slideInLeft 0.8s ease;
+        }
+
+        .header-content p {
+            color: #fde68a;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            animation: slideInLeft 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-section > nav.nav-links {
+            z-index: 1;
+            flex: 0 0 380px;
+            max-width: 420px;
+            background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.16), transparent 60%),
+                        radial-gradient(circle at 100% 100%, rgba(120, 53, 15, 0.75), transparent 60%),
+                        rgba(217, 119, 6, 0.78);
+            border-radius: 28px;
+            border: 1.5px solid rgba(248, 250, 252, 0.3);
+            box-shadow: 0 30px 55px rgba(15, 23, 42, 0.65);
+            padding: 26px 26px 24px;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section > nav.nav-links::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(
+                    135deg,
+                    rgba(248, 250, 252, 0.08) 0,
+                    transparent 12%,
+                    rgba(248, 250, 252, 0.04) 24%,
+                    transparent 36%
+                );
+            mix-blend-mode: soft-light;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .hero-section > nav.nav-links > nav.nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-button {
+            display: block;
+            padding: 13px 20px;
+            text-align: center;
+            border-radius: 16px;
+            border: 1.5px solid rgba(248, 250, 252, 0.4);
+            text-decoration: none;
+            color: #78350f;
+            background:
+                linear-gradient(135deg, rgba(254, 249, 195, 0.98), rgba(252, 211, 77, 0.95)),
+                linear-gradient(120deg, rgba(255, 255, 255, 0.96), rgba(233, 239, 255, 0.96));
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.5);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+                        box-shadow 0.35s,
+                        border-color 0.35s,
+                        background-position 0.35s;
+            background-size: 160% 160%;
+            background-position: 0% 50%;
+        }
+
+        .nav-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 140%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.9), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.45s ease;
+        }
+
+        .nav-button:hover {
+            transform: translateX(-4px) translateY(-2px) scale(1.02);
+            box-shadow: 0 22px 46px rgba(15, 23, 42, 0.7);
+            border-color: rgba(248, 250, 252, 0.96);
+            background-position: 100% 50%;
+        }
+
+        .nav-button:hover::after {
+            left: 120%;
+        }
+
+        .content-section {
+            padding: 80px 5%;
+            min-height: 60vh;
+            background-color: #fff;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            color: #d97706;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .content-section h2.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-section:nth-child(even) {
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+        }
+
+        @media (max-width: 900px) {
+            .hero-section {
+                flex-direction: column;
+                align-items: stretch;
+                padding: 32px 5%;
+                text-align: center;
+            }
+
+            .hero-section > nav.nav-links {
+                margin-top: 28px;
+                align-self: center;
+                width: 100%;
+                max-width: 440px;
+            }
+
+            .header-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .header-content p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero-section">
+        <div class="header-content">
+            <h1>Hey, I'm Vansh Jaiswal</h1>
+            <p>Accountant & Finance Professional</p>
+        </div>
+        <nav class="nav-links">
+            <nav class="nav-links">
+                <a href="https://tse09.github.io/Education/" target="_blank" rel="noopener noreferrer" class="nav-button">📚 Education</a>
+                <a href="https://tse09.github.io/Experience/" target="_blank" rel="noopener noreferrer" class="nav-button">💼 Experience</a>
+                <a href="https://tse09.github.io/Certificate/" target="_blank" rel="noopener noreferrer" class="nav-button">🏆 Certificate</a>
+                <a href="https://your-resume-website.com" target="_blank" rel="noopener noreferrer" class="nav-button">📄 Resume</a>
+                <a href="https://tse09.github.io/Skills/" target="_blank" rel="noopener noreferrer" class="nav-button">⚡ Skills</a>
+                <a href="https://tse09.github.io/Project/" target="_blank" rel="noopener noreferrer" class="nav-button">🚀 Project</a>
+                <a href="https://tse09.github.io/Contact/" target="_blank" rel="noopener noreferrer" class="nav-button">📞 Contact me</a>
+            </nav>
+        </nav>
+    </header>
+
+    <script>
+        function reveal() {
+            const reveals = document.querySelectorAll(".content-section h2");
+            reveals.forEach((element) => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>
